@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import navigation from './../data/navigation.json'
 
 const Footer = () => {
   return (
@@ -26,70 +27,43 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-3">
-              <div className="footer-heading">
-                <h4>Oxana</h4>
-              </div>
-              <p className="about-oxana">
-                Shaman synth retro slow-carb. Vape taxidermy twee, put a bird on
-                it fran xezen celiac unicorn gerstache coloring book.
-              </p>
+              <div className="footer-heading"></div>
             </div>
             <div className="col-lg-3">
               <div className="footer-heading">
-                <h4>Useful Links</h4>
+                <h4>Enlaces Útiles</h4>
               </div>
               <ul className="useful-links">
-                <li>
-                  <a href="#">About Oxana</a>
-                </li>
-                <li>
-                  <a href="#">Our Services</a>
-                </li>
-                <li>
-                  <a href="#">Help Center</a>
-                </li>
-                <li>
-                  <a href="#">Privacy Policy</a>
-                </li>
-              </ul>
-              <ul className="useful-links">
-                <li>
-                  <a href="#">Recent Posts</a>
-                </li>
-                <li>
-                  <a href="#">Case Studies</a>
-                </li>
-                <li>
-                  <a href="#">Testimonials</a>
-                </li>
-                <li>
-                  <a href="#">FAQ’s</a>
-                </li>
+                {navigation.length > 0 &&
+                  navigation.map((navItem, index) => (
+                    <li
+                      key={index}
+                      className={
+                        navItem.children && navItem.children.length > 0
+                          ? 'menu-item-has-children'
+                          : ''
+                      }
+                    >
+                      <Link to={navItem.url}>{navItem.name}</Link>
+
+                      <ul className="sub-menu">
+                        {navItem.children &&
+                          navItem.children.length > 0 &&
+                          navItem.children.map((child, i) => (
+                            <li key={i}>
+                              <Link to={child.url}>{child.name}</Link>
+                            </li>
+                          ))}
+                      </ul>
+                    </li>
+                  ))}
               </ul>
             </div>
             <div className="col-lg-3">
               <div className="footer-heading">
-                <h4>Get In Touch!</h4>
+                <h4>Ubicación</h4>
               </div>
-              <ul className="more-info">
-                <li>
-                  Email: <a href="#">contact@oxana.com</a>
-                </li>
-                <li>
-                  Phone: <a href="#">+1 547 6877 534</a>
-                </li>
-                <li>
-                  Address: <a href="#">342 Better Street Peculiar, KS 64078</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-3">
-              <div className="footer-heading">
-                <h4>Find Us</h4>
-              </div>
-              <p>
-                Shaman synth retro slow-carb. Vape taxidermy twee, put a bird.
-              </p>
+              <p>Medellín, Colombia.</p>
               <ul className="social-icons">
                 <li>
                   <a href="#">
@@ -108,11 +82,24 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+            <div className="col-lg-3">
+              <div className="footer-heading">
+                <h4>Escríbenos!</h4>
+              </div>
+              <ul className="more-info">
+                <li>
+                  Email: <a href="/contact">contactenos@meraki.com</a>
+                </li>
+              </ul>
+            </div>
+
             <div className="col-lg-12">
               <div className="sub-footer">
                 <p>
-                  Copyright © 2020 <a href="#">Robert Imeri</a>. All rights
+                  Copyright © 2020 <a href="#">Jonathan Vanegas</a>. All rights
                   reserved.
+                  <br />
+                  Powered by GoSoft
                 </p>
               </div>
             </div>

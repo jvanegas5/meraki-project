@@ -4029,7 +4029,7 @@ ul ul,
 ul ol,
 ol ul,
 ol ol {
-  margin-left: 15px;
+  margin-left: 0px;
 }
 ul li,
 ol li {
@@ -4122,8 +4122,8 @@ a {
 }
 .site-header.fixed-header.is-fixed {
   border-bottom: none;
-  background-color: rgb(236, 228, 250);
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.07);
+  background-color: #7b6fe5;
+  box-shadow: 0 0 15px 0 rgba(243, 240, 240, 0.07);
   padding: 10px 0px;
 }
 .site-header.fixed-header.is-fixed .fixed-header-logo {
@@ -4592,11 +4592,10 @@ section.footer-content .main-footer ul.useful-links:last-child {
   section.footer-content .main-footer ul.useful-links:last-child {
     margin-left: auto;
     margin-right: 20px;
-    float: right;
   }
 }
 section.footer-content .main-footer ul.useful-links li {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 section.footer-content .main-footer ul.useful-links li:last-child {
   margin-bottom: 0px;
@@ -5045,6 +5044,10 @@ section.footer-content .main-footer .sub-footer p a {
   font-weight: 700;
   line-height: 48px;
   text-transform: capitalize;
+}
+
+.page-heading-radius {
+  border-radius: 70px;
 }
 
 .page-heading {

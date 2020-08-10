@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Home",
+    "url": "/"
+  },
+
+  {
+    "name": "Somos",
+    "url": "",
+    "children": [
+      {
+        "name": "Quienes Somos",
+        "url": ""
+      },
+      {
+        "name": "Nuestro Equipo",
+        "url": ""
+      }
+    ]
+  },
+
+  {
+    "name": "Publicaciones",
+    "url": ""
+  },
+
+  {
+    "name": "Contáctenos",
+    "url": "/contact"
+  },
+
+  {
+    "name": "Iniciar Sesion",
+    "url": "/sign-in"
+  }
+]

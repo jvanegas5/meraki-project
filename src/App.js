@@ -1,5 +1,5 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React, { useState, useLayoutEffect } from 'react'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import './assets/css/bootstrap.css'
 import './assets/css/font-awesome.css'
@@ -11,18 +11,34 @@ import Footer from './components/Footer'
 import Contact from './pages/ContactForm'
 import Rrss from './pages/Rrss'
 import HomePage from './pages/Home'
+import Preloader from './components/Preloader'
 
 function App() {
+  const [scrollPosition, setPosition] = useState(0)
+  useLayoutEffect(() => {
+    function updatePosition() {
+      setPosition(window.pageYOffset)
+    }
+    window.addEventListener('scroll', updatePosition)
+    updatePosition()
+    return () => window.removeEventListener('scroll', updatePosition)
+  }, [])
+
+  const handleGotop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }
+
   return (
     <>
+      {/* <Preloader /> */}
       <Header />
       <div className="main-content">
         <Switch>
           <Route path="/contact">
-          <Contact />
+            <Contact />
           </Route>
           <Route path="/rrss">
-          <Rrss />  
+            <Rrss />
           </Route>
           <Route path="/">
             <HomePage />
@@ -30,6 +46,17 @@ function App() {
         </Switch>
       </div>
       <Footer />
+
+      <Link
+        to={'#'}
+        className="go-top"
+        style={
+          scrollPosition > 150 ? { display: 'inline' } : { display: 'none' }
+        }
+        onClick={handleGotop}
+      >
+        <i className="fa fa-angle-up"></i>
+      </Link>
     </>
   )
 }
