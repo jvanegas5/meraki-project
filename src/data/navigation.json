@@ -31,6 +31,7 @@
 
   {
     "name": "Iniciar Sesion",
-    "url": "/sign-in"
+    "url": "",
+    "type": "sign-in"
   }
 ]

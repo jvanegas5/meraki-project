@@ -5294,6 +5294,49 @@ section {
   color: #ffffff;
 }
 
+#search input[type='text'],
+#search input[type='password'] {
+  width: 80%;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0);
+  font-size: 36px;
+  padding-bottom: 15px;
+  font-weight: 300;
+  border-bottom: 2px solid #ffffff;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 12px auto;
+  outline: none;
+}
+#search input[type='text']::-webkit-input-placeholder,
+#search input[type='password']::-webkit-input-placeholder {
+  color: #ffffff;
+}
+#search input[type='text']::-moz-placeholder,
+#search input[type='password']::-moz-placeholder {
+  color: #ffffff;
+}
+#search input[type='text']:-ms-input-placeholder,
+#search input[type='password']:-ms-input-placeholder {
+  color: #ffffff;
+}
+#search input[type='text']::-ms-input-placeholder,
+#search input[type='password']::-ms-input-placeholder {
+  color: #ffffff;
+}
+#search input[type='text']::placeholder,
+#search input[type='password']::placeholder {
+  color: #ffffff;
+}
+
+.signin-form {
+  margin-top: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 #search .primary-button {
   position: absolute;
   top: 50%;

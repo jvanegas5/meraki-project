@@ -9,6 +9,7 @@ const Header = () => {
   const [search, setSearch] = useState(false)
   const [mobileNav, setmobileNav] = useState(false)
   const [mobileNavSubItems, setMobileNavSubItems] = useState(false)
+  const [login, setLogin] = useState(false)
 
   const handleScroll = () => {
     const top = window.pageYOffset || document.documentElement.scrollTop
@@ -24,6 +25,10 @@ const Header = () => {
 
   const handleSearch = () => {
     setSearch(!search)
+  }
+
+  const handleLogin = () => {
+    setLogin(!login)
   }
 
   const handlemobileNav = () => {
@@ -58,6 +63,25 @@ const Header = () => {
         </form>
       </div>
 
+      <div id="search" className={login ? 'open' : ''}>
+        <button type="button" className="close" onClick={handleLogin}>
+          ×
+        </button>
+        <div className="container">
+          <form className="signin-form">
+            <div className="row">
+              <input type="text" placeholder="Nombre de Usuario" required="" />
+            </div>
+            <div className="row">
+              <input type="password" placeholder="Contraseña" required="" />
+            </div>
+            <div className="main-purple-button">
+              <Link onClick={''}>Iniciar Sesión</Link>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div className="container expanded">
         <div className="header-wrap">
           <div className="fixed-header-logo">
@@ -82,7 +106,11 @@ const Header = () => {
                         : ''
                     }
                   >
-                    <Link to={navItem.url}>{navItem.name}</Link>
+                    {navItem.type && navItem.type === 'sign-in' ? (
+                      <Link onClick={handleLogin}>{navItem.name}</Link>
+                    ) : (
+                      <Link to={navItem.url}>{navItem.name}</Link>
+                    )}
 
                     <ul className="sub-menu">
                       {navItem.children &&
@@ -142,6 +170,8 @@ const Header = () => {
                       {navItem.name}
                       <i className="sub-icon fa fa-angle-down"></i>
                     </Link>
+                  ) : navItem.type && navItem.type === 'sign-in' ? (
+                    <Link onClick={handleLogin}>{navItem.name}</Link>
                   ) : (
                     <Link to={navItem.url}>{navItem.name}</Link>
                   )}

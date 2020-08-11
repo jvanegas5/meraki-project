@@ -40,6 +40,7 @@ function App() {
           <Route path="/rrss">
             <Rrss />
           </Route>
+
           <Route path="/">
             <HomePage />
           </Route>
